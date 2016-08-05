@@ -113,6 +113,7 @@ public class XMLBinding {
 		try{
 			String s = root.saveToString();
 			writer.write(s);
+			writer.flush();
 		} catch(IOException ioe) {
 			throw new XbException(ioe);
 		}
