@@ -44,14 +44,14 @@ public class NewServerAdapterPage extends WizardPage {
 	}
 
 	public Profile getProfile() {
-		if(new RadioButton(referencedComposite, "Local").isSelected())
+		if(new RadioButton(this, "Local").isSelected())
 			return Profile.LOCAL;
 		else
 			return Profile.REMOTE;
 	}
 
 	public void setAssignRuntime(boolean assign) {
-		CheckBox check = new CheckBox(referencedComposite);
+		CheckBox check = new CheckBox(this);
 		if(check.isChecked() != assign) {
 			check.click();
 		}
@@ -89,7 +89,7 @@ public class NewServerAdapterPage extends WizardPage {
 	}
 
 	private Combo getRuntimeCombo() {
-		return new DefaultCombo(referencedComposite, new RuntimeComboMatcher());
+		return new DefaultCombo(this, new RuntimeComboMatcher());
 	}
 
 	public enum Profile {

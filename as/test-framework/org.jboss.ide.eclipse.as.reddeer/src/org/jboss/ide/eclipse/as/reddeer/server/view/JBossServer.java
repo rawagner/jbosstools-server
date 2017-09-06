@@ -11,7 +11,6 @@ import org.eclipse.reddeer.common.logging.Logger;
 import org.eclipse.reddeer.common.util.Display;
 import org.eclipse.reddeer.common.wait.TimePeriod;
 import org.eclipse.reddeer.common.wait.WaitUntil;
-import org.eclipse.reddeer.eclipse.exception.EclipseLayerException;
 import org.eclipse.reddeer.eclipse.ui.console.ConsoleView;
 import org.eclipse.reddeer.eclipse.wst.server.ui.cnf.AbstractServer;
 import org.eclipse.reddeer.eclipse.wst.server.ui.cnf.ServerModule;
@@ -23,7 +22,6 @@ import org.eclipse.reddeer.swt.exception.SWTLayerException;
 import org.eclipse.reddeer.swt.impl.menu.ContextMenuItem;
 import org.eclipse.reddeer.swt.impl.shell.DefaultShell;
 import org.eclipse.wst.server.ui.IServerModule;
-import org.hamcrest.Matcher;
 import org.hamcrest.core.IsEqual;
 
 /**

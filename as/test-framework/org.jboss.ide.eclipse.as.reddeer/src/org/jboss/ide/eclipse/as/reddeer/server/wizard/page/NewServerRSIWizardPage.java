@@ -28,14 +28,14 @@ public class NewServerRSIWizardPage extends WizardPage{
 	 * @param path
 	 */
 	public void setRemoteServerHome(String path){
-		new DefaultText(referencedComposite, 0).setText(path);
+		new DefaultText(this, 0).setText(path);
 	}
 
 	/**
 	 * @return Remote Server Home text
 	 */
 	public String getRemoteServerHome() {
-		return new DefaultText(referencedComposite, 0).getText();
+		return new DefaultText(this, 0).getText();
 	}
 	
 	/**
@@ -59,11 +59,11 @@ public class NewServerRSIWizardPage extends WizardPage{
 	}
 	
 	private Combo getHostCombo() {
-		return new DefaultCombo(referencedComposite, 0);
+		return new DefaultCombo(this, 0);
 	}
 	
 	public RSEMainNewConnectionWizard createNewHost(){
-		new PushButton(referencedComposite, "New Host...").click();
+		new PushButton(this, "New Host...").click();
 		return new RSEMainNewConnectionWizard();
 		
 	}

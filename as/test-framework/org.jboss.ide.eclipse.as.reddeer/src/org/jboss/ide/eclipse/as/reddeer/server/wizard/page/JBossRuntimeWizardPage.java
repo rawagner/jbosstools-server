@@ -33,38 +33,38 @@ public class JBossRuntimeWizardPage extends WizardPage{
 	private static final String HOME_DIRECTORY_LABEL = "Home Directory";
 	
 	public void setRuntimeName(String name){
-		 new LabeledText(referencedComposite, RUNTIME_NAME_LABEL).setText(name);
+		 new LabeledText(this, RUNTIME_NAME_LABEL).setText(name);
 	}
 
 	public String getRuntimeName() {
-		return new LabeledText(referencedComposite, RUNTIME_NAME_LABEL).getText();
+		return new LabeledText(this, RUNTIME_NAME_LABEL).getText();
 	}
 
 	public void setRuntimeDir(String path){
 		if(!new File(path).exists()) {
 			throw new IllegalArgumentException("Path doesn't exist: "+path);
 		}
-		new LabeledText(referencedComposite, HOME_DIRECTORY_LABEL).setText(path);
+		new LabeledText(this, HOME_DIRECTORY_LABEL).setText(path);
 	}
 
 	public String getRuntimeDir() {
-		return new LabeledText(referencedComposite, HOME_DIRECTORY_LABEL).getText();
+		return new LabeledText(this, HOME_DIRECTORY_LABEL).getText();
 	}
 	
 	public void setExecutionEnvironment(String env){
-		new RadioButton(referencedComposite, "Execution Environment: ").toggle(true);
-		new DefaultCombo(referencedComposite, 0).setSelection(env);
+		new RadioButton(this, "Execution Environment: ").toggle(true);
+		new DefaultCombo(this, 0).setSelection(env);
 	}
 	
 	public void setAlternateJRE(String jre){
-		new RadioButton(referencedComposite, "Alternate JRE: ").toggle(true);
-		new DefaultCombo(referencedComposite, 1).setSelection(jre);
+		new RadioButton(this, "Alternate JRE: ").toggle(true);
+		new DefaultCombo(this, 1).setSelection(jre);
 	}
 
 	public void checkErrors() {
 		String text;
 		try {
-			text = new LabeledText(referencedComposite, "JBoss Runtime").getText();
+			text = new LabeledText(this, "JBoss Runtime").getText();
 			LOGGER.info("Found error text: " + text);
 		} catch(CoreLayerException e) {
 			LOGGER.info("No error text found.");

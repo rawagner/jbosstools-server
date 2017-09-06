@@ -24,7 +24,7 @@ public class NewServerWizardPageWithErrorCheck extends NewServerWizardPage {
 	protected final static Logger log = Logger.getLogger(NewServerWizardPageWithErrorCheck.class);
 	
 	public String getServerName() {
-		return new LabeledText(referencedComposite, "Server name:").getText();
+		return new LabeledText(this, "Server name:").getText();
 	}
 
 	public void checkErrors() {
@@ -37,7 +37,7 @@ public class NewServerWizardPageWithErrorCheck extends NewServerWizardPage {
 	private String getErrorText() {
 		String text;
 		try {
-			text = new LabeledText(referencedComposite, "Define a New Server").getText();
+			text = new LabeledText(this, "Define a New Server").getText();
 			log.info("Found error text: " + text);
 		} catch(CoreLayerException e) {
 			log.info("No error text found.");

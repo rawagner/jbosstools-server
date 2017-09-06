@@ -199,7 +199,7 @@ public class DeployOnServer {
 		ServersView2 serversView = new ServersView2();
 		serversView.open();
 		String moduleName = projectName.equals("template") ? "QUICKSTART_NAME" : projectName;
-		JBossServerModule module  = serversView.getServer(JBossServer.class, serverNameLabel).getModule(new RegexMatcher(".*" + moduleName + ".*"));
+		JBossServerModule module  = serversView.getServer(JBossServer.class, serverNameLabel).getModule(JBossServerModule.class, new RegexMatcher(".*" + moduleName + ".*"));
 		if (new ContextMenuItem("Show In", "Web Browser").isEnabled()) {
 			module.openWebPage();
 
