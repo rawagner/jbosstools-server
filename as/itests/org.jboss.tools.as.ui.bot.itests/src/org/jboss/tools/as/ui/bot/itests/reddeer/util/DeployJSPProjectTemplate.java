@@ -18,6 +18,7 @@ import org.jboss.ide.eclipse.as.reddeer.matcher.ServerConsoleContainsNoException
 import org.jboss.ide.eclipse.as.reddeer.server.editor.ServerModuleWebPageEditor;
 import org.jboss.ide.eclipse.as.reddeer.server.view.JBossServer;
 import org.jboss.ide.eclipse.as.reddeer.server.view.JBossServerModule;
+import org.eclipse.reddeer.common.condition.AbstractWaitCondition;
 import org.eclipse.reddeer.common.exception.WaitTimeoutExpiredException;
 import org.eclipse.reddeer.common.logging.Logger;
 import org.eclipse.reddeer.common.wait.TimePeriod;
@@ -269,6 +270,7 @@ public class DeployJSPProjectTemplate {
 		
 		// console
 		log.step("Assert console has undeployment notification");
+		new WaitUntil(new ConsoleIsOpen());
 		new WaitUntil(new ConsoleHasText(expectedConsole));
 		assertNoException("Error in console after undeploy");
 		// view
@@ -285,6 +287,14 @@ public class DeployJSPProjectTemplate {
 		ModifyModulesPage modifyModulesPage = new ModifyModulesPage(modifyModulesDialog);
 		modifyModulesPage.remove(projectName);;
 		modifyModulesDialog.finish();
+	}
+	
+	class ConsoleIsOpen extends AbstractWaitCondition{
+
+		@Override
+		public boolean test() {
+			return new ConsoleView().isOpen();
+		}
 	}
 	
 }
